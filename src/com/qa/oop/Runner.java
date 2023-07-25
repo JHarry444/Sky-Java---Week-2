@@ -13,7 +13,7 @@ public class Runner {
         d.fetch();
 //        a.fetch();
         a = new Cat();
-        // instanceof checsk to see if the animal is a dog first
+        // instanceof check to see if the animal is a dog first
         if (a instanceof Dog) ((Dog) a).fetch(); // downcasting treats the animal as a dog
 
         Object[] objects = {new Cat(), new Dog(), true, 27};
