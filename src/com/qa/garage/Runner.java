@@ -1,5 +1,8 @@
 package com.qa.garage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Runner {
 
     public static void main(String[] args) {
@@ -23,5 +26,10 @@ public class Runner {
         System.out.println(garage);
         System.out.println(garage.fix(new Car(4, 15)));
         System.out.println(garage.fix(new Bike(5, true)));
+
+        List<Refuelable> refuelables = List.of(new Car(), new Generator(25));
+        for (Refuelable r : refuelables) r.refuel(10); // give 'em a top up
+
+
     }
 }

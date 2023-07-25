@@ -1,11 +1,18 @@
 package com.qa.oop;
 
-public class Animal extends Object{
+// allows for abstract methods and prevent instantiating and object from this class
+public abstract class Animal extends Object implements Comparable<Animal> {
+
+    private String name;
 
     private boolean hasFur;
     private int noOfLegs;
     private boolean fluffy;
     private String colour;
+
+    public Animal(String name) {
+        this.name = name;
+    }
 
     public Animal() {
         super();
@@ -31,8 +38,15 @@ public class Animal extends Object{
 
     }
 
-    public void speak() {
-        System.out.println("DEFAULT NOISE ACTIVATED");
+    // can skip the method body as it's abstract
+    public abstract void speak();
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public boolean isHasFur() {
@@ -65,5 +79,18 @@ public class Animal extends Object{
 
     public void setColour(String colour) {
         this.colour = colour;
+    }
+
+    @Override
+    public int compareTo(Animal other) {
+        System.out.println("Current: " + this.name  + " Other: " + other.name + " Compare: " + this.name.compareTo(other.name));
+        return this.name.compareTo(other.name);
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

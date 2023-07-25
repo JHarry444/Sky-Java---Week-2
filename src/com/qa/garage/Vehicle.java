@@ -1,9 +1,10 @@
 package com.qa.garage;
 
-public class Vehicle {
+public class Vehicle extends Object implements Refuelable{
 
     private int id;
 
+    private int fuel;
     private int noOfWheels;
 
     public Vehicle() {
@@ -39,5 +40,17 @@ public class Vehicle {
                 "id=" + id +
                 ", noOfWheels=" + noOfWheels +
                 '}';
+    }
+
+    @Override
+    public int refuel() {
+        this.fuel = maxFuel;
+        return this.fuel;
+    }
+
+    @Override
+    public int refuel(int fuel) {
+        this.fuel += fuel;
+        return this.fuel;
     }
 }

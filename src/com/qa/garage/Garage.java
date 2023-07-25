@@ -1,6 +1,7 @@
 package com.qa.garage;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Garage {
@@ -10,7 +11,7 @@ public class Garage {
     private int count = 0;
 
     public Garage() {
-        this.vehicles = new ArrayList<>();
+        this.vehicles = new LinkedList<>();
     }
 
     public Garage(List<Vehicle> vehicles) {
