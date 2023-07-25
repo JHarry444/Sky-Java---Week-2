@@ -1,5 +1,12 @@
 package com.qa.classes;
 
+import com.qa.oop.Animal;
+import com.qa.oop.Cat;
+import com.qa.oop.Dog;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person {
 
     private static String latinName = "Homo Sapien";
@@ -12,6 +19,8 @@ public class Person {
     private final String naturalHairColour;
 
     private String job;
+
+    private List<Animal> pets = new ArrayList<>();
 
     // default constructor - provided by java if you dont create your own
     public Person() {
@@ -43,6 +52,16 @@ public class Person {
     public void intro() {
         System.out.println("Hello, my name is " + name + " and I am a " + age + " years old " + job + " with " + naturalHairColour + " hair.");
     }
+
+
+    public List<Animal> getPets() {
+        return this.pets;
+    }
+
+    public boolean addPet(Animal pet) {
+        return this.pets.add(pet);
+    }
+
 
     // lets you print the object using sout
     @Override
