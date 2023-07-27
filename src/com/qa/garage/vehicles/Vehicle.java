@@ -1,6 +1,8 @@
-package com.qa.garage;
+package com.qa.garage.vehicles;
 
-public abstract class Vehicle extends Object implements Refuelable{
+import com.qa.garage.Refuelable;
+
+public abstract class Vehicle extends Object implements Refuelable {
 
     private int id;
 

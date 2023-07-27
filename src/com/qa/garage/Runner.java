@@ -1,11 +1,14 @@
 package com.qa.garage;
 
-import java.util.ArrayList;
+import com.qa.exceptions.VehicleNotFoundException;
+import com.qa.garage.vehicles.Bike;
+import com.qa.garage.vehicles.Car;
+
 import java.util.List;
 
 public class Runner {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws VehicleNotFoundException {
         Garage garage = new Garage();
 
         garage.addVehicle(new Car(4, 10));

@@ -1,5 +1,9 @@
 package com.qa.garage;
 
+import com.qa.exceptions.VehicleNotFoundException;
+import com.qa.garage.vehicles.Car;
+import com.qa.garage.vehicles.Vehicle;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -23,11 +27,18 @@ public class Garage {
         return this.vehicles.add(v);
     }
 
-    public boolean remove(int id) {
+    public boolean remove(int id) throws VehicleNotFoundException {
         for (Vehicle v : this.vehicles)
             if (v.getId() == id) return this.vehicles.remove(v);
 
-        return false;
+        throw new VehicleNotFoundException("No vehicle found with id: " + id);
+    }
+
+    public Vehicle find(int id) throws VehicleNotFoundException {
+        for (Vehicle v : this.vehicles)
+            if (v.getId() == id) return v;
+
+        throw new VehicleNotFoundException("No vehicle found with id: " + id);
     }
 
     public int remove(String type) {
