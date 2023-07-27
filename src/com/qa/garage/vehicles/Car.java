@@ -1,5 +1,7 @@
 package com.qa.garage.vehicles;
 
+import java.util.Objects;
+
 public class Car extends Vehicle{
 
     private int bootSpace;
@@ -33,5 +35,18 @@ public class Car extends Vehicle{
 
     public void setBootSpace(int bootSpace) {
         this.bootSpace = bootSpace;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return bootSpace == car.bootSpace;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bootSpace);
     }
 }
