@@ -13,19 +13,37 @@ public class UserInput implements Closeable {
     }
 
 
-    public String getString() {
-        return this.scan.nextLine();
+    public String getString(Validator<String> v, String message) {
+        String s  = null;
+
+        do {
+            System.out.println(message);
+            s= this.scan.nextLine();
+        } while(s == null || (v != null && !v.isValid(s)));
+        return s;
     }
 
+    public String getString(Validator<String> v) {
+        return this.getString(v, "Please enter a valid string");
+    }
+    public String getString() {
+        return this.getString(null, "Please enter a valid string");
+    }
+
+
     public int getInt() {
+        return this.getInt(null);
+    }
+    public int getInt(Validator<Integer> v) {
         Integer i = null;
         do {
             try {
                 i = Integer.parseInt(this.scan.nextLine());
+
             } catch (NumberFormatException nfe) {
                 System.out.println("Please enter a valid number");
             }
-        } while(i == null);
+        } while(i == null || (v != null && !v.isValid(i)));
         return i.intValue();
     }
 
